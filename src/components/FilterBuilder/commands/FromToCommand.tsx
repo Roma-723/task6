@@ -50,10 +50,10 @@ export function FromToCommand({ command, onUpdate }: FromToCommandProps) {
               onFocus={() => setOpenDropdown(row.id)}
               onBlur={() => setTimeout(() => setOpenDropdown(null), 100)}
               placeholder="keyName"
-              className="w-28 px-2 py-1 border border-gray-300 rounded"
+              className="w-28 px-3 py-2 h-9 border border-gray-300 rounded-md"
             />
             {openDropdown === row.id && (
-              <div className="absolute top-full left-0 w-28 border border-gray-300 bg-white rounded mt-1 z-10">
+              <div className="absolute top-full left-0 w-28 border border-gray-300 bg-white rounded-md mt-1 z-10">
                 {AVAILABLE_KEYS.filter(k => k.includes(row.keyName)).length > 0 ? (
                   AVAILABLE_KEYS.filter(k => k.includes(row.keyName)).map(key => (
                     <div
@@ -79,7 +79,7 @@ export function FromToCommand({ command, onUpdate }: FromToCommandProps) {
             value={row.from}
             onChange={(e) => updateRow(row.id, { from: e.target.value })}
             placeholder="from"
-            className="w-20 px-2 py-1 border border-gray-300 rounded"
+            className="w-20 px-3 py-2 h-9 border border-gray-300 rounded-md"
           />
 
           <input
@@ -87,20 +87,20 @@ export function FromToCommand({ command, onUpdate }: FromToCommandProps) {
             value={row.to}
             onChange={(e) => updateRow(row.id, { to: e.target.value })}
             placeholder="to"
-            className="w-20 px-2 py-1 border border-gray-300 rounded"
+            className="w-20 px-3 py-2 h-9 border border-gray-300 rounded-md"
           />
 
           {idx === command.rows.length - 1 ? (
             <button
               onClick={addRow}
-              className="px-2 py-1 border border-gray-300 rounded hover:bg-gray-100"
+              className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-md hover:bg-gray-100"
             >
               +
             </button>
           ) : (
             <button
               onClick={() => removeRow(row.id)}
-              className="px-2 py-1 border border-gray-300 rounded hover:bg-gray-100"
+              className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-md hover:bg-gray-100"
             >
               −
             </button>

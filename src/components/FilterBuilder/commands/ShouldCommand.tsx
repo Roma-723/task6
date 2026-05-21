@@ -12,8 +12,7 @@ export function ShouldCommand({ command, onUpdate }: ShouldCommandProps) {
   };
 
   return (
-    <div className="border-2 border-dashed border-blue-400 rounded p-4 bg-blue-50">
-      <div className="text-sm font-medium mb-3 text-blue-700">Should Block</div>
+    <div className="border-2 border-dashed border-blue-500 rounded-lg p-4 bg-blue-50">
       <FilterBuilder
         commands={command.commands}
         onCommandsChange={handleCommandsChange}

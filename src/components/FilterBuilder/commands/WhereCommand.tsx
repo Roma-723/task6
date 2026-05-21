@@ -73,7 +73,7 @@ export function WhereCommand({ command, onUpdate }: WhereCommandProps) {
               value={row.keyName}
               onChange={(e) => updateRow(row.id, { keyName: e.target.value })}
               placeholder="keyName"
-              className="w-24 px-2 py-1 border border-gray-300 rounded"
+              className="w-24 px-3 py-2 h-9 border border-gray-300 rounded-md"
             />
 
             <div className="flex-1" />
@@ -88,13 +88,13 @@ export function WhereCommand({ command, onUpdate }: WhereCommandProps) {
                   value={value.val}
                   onChange={(e) => updateValue(row.id, value.id, e.target.value)}
                   placeholder="value"
-                  className="w-32 px-2 py-1 border border-gray-300 rounded"
+                  className="w-32 px-3 py-2 h-9 border border-gray-300 rounded-md"
                 />
 
                 {!isLastValue && (
                   <button
                     onClick={() => removeValue(row.id, value.id)}
-                    className="px-2 py-1 border border-gray-300 rounded hover:bg-gray-100 text-sm"
+                    className="px-3 py-1 border border-gray-300 rounded-md hover:bg-gray-100 text-sm"
                   >
                     − in
                   </button>
@@ -104,7 +104,7 @@ export function WhereCommand({ command, onUpdate }: WhereCommandProps) {
                   <div className="flex gap-1">
                     <button
                       onClick={() => addValueToRow(row.id)}
-                      className="px-2 py-1 border border-gray-300 rounded hover:bg-gray-100 text-sm"
+                      className="px-3 py-1 border border-gray-300 rounded-md hover:bg-gray-100 text-sm"
                     >
                       + in
                     </button>
@@ -112,7 +112,7 @@ export function WhereCommand({ command, onUpdate }: WhereCommandProps) {
                       <>
                         <button
                           onClick={addRow}
-                          className="px-2 py-1 border border-gray-300 rounded hover:bg-gray-100"
+                          className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-md hover:bg-gray-100"
                         >
                           +
                         </button>
@@ -121,7 +121,7 @@ export function WhereCommand({ command, onUpdate }: WhereCommandProps) {
                     {!isLastRow(row.id) && (
                       <button
                         onClick={() => removeRow(row.id)}
-                        className="px-2 py-1 border border-gray-300 rounded hover:bg-gray-100"
+                        className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-md hover:bg-gray-100"
                       >
                         −
                       </button>

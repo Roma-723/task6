@@ -44,13 +44,13 @@ export function RangeCommand({ command, onUpdate }: RangeCommandProps) {
             value={row.keyName}
             onChange={(e) => updateRow(row.id, { keyName: e.target.value })}
             placeholder="keyName"
-            className="w-50 px-2 py-1 border border-gray-300 rounded"
+            className="w-50 px-3 py-2 h-9 border border-gray-300 rounded-md"
           />
 
           <select
             value={row.op1}
             onChange={(e) => updateRow(row.id, { op1: e.target.value as '>=' | '>' })}
-            className="w-50 px-2 py-1 border border-gray-300 rounded"
+            className="w-50 px-3 py-2 h-9 border border-gray-300 rounded-md"
           >
             <option value=">=">&gt;=</option>
             <option value=">">&gt;</option>
@@ -61,13 +61,13 @@ export function RangeCommand({ command, onUpdate }: RangeCommandProps) {
             value={row.value1}
             onChange={(e) => updateRow(row.id, { value1: e.target.value })}
             placeholder="value"
-            className="w-50 px-2 py-1 border border-gray-300 rounded"
+            className="w-50 px-3 py-2 h-9 border border-gray-300 rounded-md"
           />
 
           <select
             value={row.op2}
             onChange={(e) => updateRow(row.id, { op2: e.target.value as '<=' | '<' })}
-            className="w-30 px-2 py-1 border border-gray-300 rounded"
+            className="w-30 px-3 py-2 h-9 border border-gray-300 rounded-md"
           >
             <option value="<=">&lt;=</option>
             <option value="<">&lt;</option>
@@ -78,24 +78,24 @@ export function RangeCommand({ command, onUpdate }: RangeCommandProps) {
             value={row.value2}
             onChange={(e) => updateRow(row.id, { value2: e.target.value })}
             placeholder="value"
-            className="w-50 px-2 py-1 border border-gray-300 rounded"
+            className="w-50 px-3 py-2 h-9 border border-gray-300 rounded-md"
           />
 
-          <button className="px-2 py-1 border border-gray-300 rounded hover:bg-gray-100">
+          <button className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-md hover:bg-gray-100">
             📋
           </button>
 
           {idx === command.rows.length - 1 ? (
             <button
               onClick={addRow}
-              className="px-2 py-1 border border-gray-300 rounded hover:bg-gray-100"
+              className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-md hover:bg-gray-100"
             >
               +
             </button>
           ) : (
             <button
               onClick={() => removeRow(row.id)}
-              className="px-2 py-1 border border-gray-300 rounded hover:bg-gray-100"
+              className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-md hover:bg-gray-100"
             >
               −
             </button>

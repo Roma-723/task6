@@ -39,7 +39,7 @@ export function ExistsKeyCommand({ command, onUpdate }: ExistsKeyCommandProps) {
           <select
             value={row.selected}
             onChange={(e) => updateRow(row.id, e.target.value)}
-            className="w-32 px-2 py-1 border border-gray-300 rounded"
+            className="w-32 px-3 py-2 h-9 border border-gray-300 rounded-md"
           >
             <option value="">Select...</option>
             {SELECT_OPTIONS.map(opt => (
@@ -50,14 +50,14 @@ export function ExistsKeyCommand({ command, onUpdate }: ExistsKeyCommandProps) {
           {idx === command.rows.length - 1 ? (
             <button
               onClick={addRow}
-              className="px-2 py-1 border border-gray-300 rounded hover:bg-gray-100"
+              className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-md hover:bg-gray-100"
             >
               +
             </button>
           ) : (
             <button
               onClick={() => removeRow(row.id)}
-              className="px-2 py-1 border border-gray-300 rounded hover:bg-gray-100"
+              className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-md hover:bg-gray-100"
             >
               −
             </button>
