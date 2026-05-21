@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(npx tsc *)",
+      "Bash(timeout 120 npm run dev)",
+      "Read(//tmp/**)",
+      "Bash(curl -s http://localhost:3003)",
+      "Bash(node test-filterbuilder.js)",
+      "Bash(chmod +x /tmp/verify.sh)",
+      "Bash(/tmp/verify.sh)",
+      "Bash(npx playwright *)",
+      "Bash(rm -f test_app.mjs test_build_json.mjs test_verify.mjs)",
+      "Bash(ls *.mjs)",
+      "Bash(powershell -Command ' *)"
+    ]
+  }
+}
