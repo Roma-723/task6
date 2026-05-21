@@ -12,6 +12,8 @@ interface FilterBuilderProps {
   isNested?: boolean;
 }
 
+const COMMAND_OPTIONS: CommandType[] = ['range', 'where', '!where', 'exists_key', '!exists_key', 'from_to', 'should'];
+
 export function FilterBuilder({ commands, onCommandsChange, isNested = false }: FilterBuilderProps) {
   const createEmptyCommand = (type: CommandType): FilterCommand => {
     const id = nanoid();
@@ -61,10 +63,13 @@ export function FilterBuilder({ commands, onCommandsChange, isNested = false }: 
     onCommandsChange(updated);
   };
 
-  const changeCommandType = (id: string, newType: CommandType) => {
-    const newCommand = createEmptyCommand(newType);
-    const updated = commands.map(cmd => (cmd.id === id ? newCommand : cmd));
-    onCommandsChange(updated);
+  const handleTypeChange = (commandId: string, newType: CommandType) => {
+    onCommandsChange(
+      commands.map(cmd => {
+        if (cmd.id !== commandId) return cmd;
+        return createEmptyCommand(newType);
+      })
+    );
   };
 
   const removeCommand = (id: string) => {
@@ -72,9 +77,23 @@ export function FilterBuilder({ commands, onCommandsChange, isNested = false }: 
     onCommandsChange(updated);
   };
 
+  const getUsedTypes = (excludeCommandId: string): Set<CommandType> => {
+    return new Set(
+      commands
+        .filter(cmd => cmd.id !== excludeCommandId)
+        .map(cmd => cmd.type)
+    );
+  };
+
   return (
     <div className="space-y-3">
-      {commands.map(command => (
+      {commands.map(command => {
+        const usedTypes = getUsedTypes(command.id);
+        const availableOptions = COMMAND_OPTIONS.filter(
+          opt => opt === 'should' || opt === command.type || !usedTypes.has(opt)
+        );
+
+        return (
         <div
           key={command.id}
           className="border border-gray-300 rounded p-3 bg-white"
@@ -82,16 +101,12 @@ export function FilterBuilder({ commands, onCommandsChange, isNested = false }: 
           <div className="flex items-start gap-3 mb-3">
             <select
               value={command.type}
-              onChange={(e) => changeCommandType(command.id, e.target.value as CommandType)}
+              onChange={(e) => handleTypeChange(command.id, e.target.value as CommandType)}
               className="px-2 py-1 border border-gray-300 rounded bg-white font-medium"
             >
-              <option value="range">range</option>
-              <option value="where">where</option>
-              <option value="!where">!where</option>
-              <option value="exists_key">exists_key</option>
-              <option value="!exists_key">!exists_key</option>
-              <option value="from_to">from_to</option>
-              <option value="should">should</option>
+              {availableOptions.map(opt => (
+                <option key={opt} value={opt}>{opt}</option>
+              ))}
             </select>
 
             <button
@@ -135,7 +150,8 @@ export function FilterBuilder({ commands, onCommandsChange, isNested = false }: 
             )}
           </div>
         </div>
-      ))}
+        );
+      })}
 
       <button
         onClick={addCommand}
