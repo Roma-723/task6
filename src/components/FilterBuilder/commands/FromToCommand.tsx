@@ -100,7 +100,7 @@ export function FromToCommand({ command, onUpdate }: FromToCommandProps) {
 
 
 
-              
+
               +
             </button>
           ) : (
@@ -110,9 +110,15 @@ export function FromToCommand({ command, onUpdate }: FromToCommandProps) {
             >
               −
             </button>
+
+
+
+
+
           )}
         </div>
       ))}
+      <p>erinnfd</p>
     </div>
   );
 }
