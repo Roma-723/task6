@@ -17,7 +17,6 @@ const App = () => {
     <div className=" bg-gray-50 p-8">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold mb-8">Filter Builder</h1>
-   <p>name</p>
         <div className="w-300 bg-white rounded border border-gray-300 p-6 mb-8">
           <FilterBuilder
             commands={commands}
