@@ -70,8 +70,6 @@ export function RangeCommand({ command, onUpdate }: RangeCommandProps) {
           >
             <option value="<=">&lt;=</option>
             <option value="<">&lt;</option>
-            <option value="<">&lt;</option>
-            <option value="<">&lt;</option>
           </select>
 
           <input
