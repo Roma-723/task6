@@ -75,20 +75,6 @@ export function WhereCommand({ command, onUpdate }: WhereCommandProps) {
               placeholder="keyName"
               className="w-24 px-3 py-2 h-9 border border-gray-300 rounded-md"
             />
-            <input
-              type="text"
-              value={row.keyName}
-              onChange={(e) => updateRow(row.id, { keyName: e.target.value })}
-              placeholder="keyName"
-              className="w-24 px-3 py-2 h-9 border border-gray-300 rounded-md"
-            />
-            <input
-              type="text"
-              value={row.keyName}
-              onChange={(e) => updateRow(row.id, { keyName: e.target.value })}
-              placeholder="keyName"
-              className="w-24 px-3 py-2 h-9 border border-gray-300 rounded-md"
-            />
 
             <div className="flex-1" />
           </div>
