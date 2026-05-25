@@ -63,7 +63,7 @@ export function RangeCommand({ command, onUpdate }: RangeCommandProps) {
             placeholder="value"
             className="w-50 px-3 py-2 h-9 border border-gray-300 rounded-md"
           />
-
+           <p>dfds</p>
           <select
             value={row.op2}
             onChange={(e) => updateRow(row.id, { op2: e.target.value as '<=' | '<' })}

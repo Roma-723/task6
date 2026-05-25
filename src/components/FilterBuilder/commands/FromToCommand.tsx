@@ -118,7 +118,6 @@ export function FromToCommand({ command, onUpdate }: FromToCommandProps) {
           )}
         </div>
       ))}
-      <p>erinnfd</p>
     </div>
   );
 }
