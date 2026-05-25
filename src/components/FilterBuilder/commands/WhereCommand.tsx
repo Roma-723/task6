@@ -77,6 +77,9 @@ export function WhereCommand({ command, onUpdate }: WhereCommandProps) {
             />
 
             <div className="flex-1" />
+            <div className="flex-1" />
+            <div className="flex-1" />
+            <div className="flex-1" />
           </div>
 
           {row.values.map((value, valIdx) => {
